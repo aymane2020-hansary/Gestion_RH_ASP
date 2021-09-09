@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EMP" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-3H6VK5U;Initial Catalog=EMP;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="EMPConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Table_emp" Member="Table_emp">
+    <Type Name="Table_emp">
+      <Column Name="matricule" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="prénom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="datenaissance" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

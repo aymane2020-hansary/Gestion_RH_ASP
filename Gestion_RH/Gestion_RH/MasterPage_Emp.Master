@@ -1,0 +1,170 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage_Emp.master.cs" Inherits="Gestion_RH.MasterPage_Emp" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="js_css_cards/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/js/mdb.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">	
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="SideBar_Files/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title></title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        .nav-link[data-toggle].collapsed:after {
+              content: " ▾";
+        }
+        .nav-link[data-toggle]:not(.collapsed):after {
+            content: " ▴";
+        }
+    </style>
+</head>
+    
+<body style="background-color: whitesmoke">
+    <form id="form1" runat="server">
+        <div>
+            <nav class="mb-6 navbar navbar-expand-lg navbar-dark" style="justify-content:space-between; padding: 5px 180px 5px 40px; background-color: white; width:100%">
+                <div>
+			         <a class="navbar-brand font-weight-bold text-uppercase" href="Dashboard.aspx" style="padding-top: 7px; color: #1296db">R.Humaine</a>
+					 <button type="button" id="sidebarCollapse" class="btn btn-primary" style="box-shadow: none; float: left; background: #1296db">
+	                    <i class="fa fa-bars"></i>
+	                    <span class="sr-only">Toggle Menu</span>
+	                 </button>
+                </div>
+			    <ul class="navbar-nav nav-right">			
+			        <li class="nav-item avt-wrapper">
+				        <div class="avt dropdown">
+					        <img src="assets/tuat.jpg" alt="User image" class="dropdown-toggle" data-toggle="user-menu" style="width: 40px; height: 40px;">
+					        <ul id="user-menu" class="dropdown-menu">
+						        <li  class="dropdown-menu-item">
+							        <a class="dropdown-menu-link">
+								        <div>
+									        <i class="fa fa-user"></i>
+								        </div>
+                                        <asp:Label ID="profile" runat="server" Text="profile"></asp:Label>
+							        </a>
+						        </li>
+						        <li  class="dropdown-menu-item">
+							        <a href="#" class="dropdown-menu-link" runat="server">
+								        <div>
+									        <i class="fa fa-sign-out" style="color: red"></i>
+								        </div>
+                                        <asp:Button ID="Déconnecter_1" runat="server" Text="Déconnecter" style="background-color: transparent; color: red; border: none; margin-left: -5px;" OnClick="Déconnecter_1_Click"/>
+							        </a>
+						        </li>
+					        </ul>
+				        </div>
+			        </li>
+		        </ul>
+		    </nav>
+
+           <div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+                <ul class="list-unstyled components mb-5">
+                  <li class="active" runat="server" id="Dashboard">
+                    <a href="Dashboard.aspx"><span class="fa fa-home mr-3"></span> Home</a>
+                  </li>
+                  <li runat="server" id="Employé">
+                      <a href="Employé.aspx"><span class="fa fa-user mr-3"></span> Employé</a>
+                  </li>
+                  <li runat="server" id="Projet" class="nav-item">
+                    <a class="nav-link collapsed text-truncate dropdown-btn" href="#submenu1" data-toggle="collapse" data-target="#submenu1">
+                        <span class="fa fa-briefcase mr-3"></span><span class="d-none d-sm-inline"> Projet </span></a>
+                    <div class="collapse" id="submenu1" aria-expanded="false">
+                      <ul class="flex-column pl-2 nav">
+                          <li class="nav-item" style="background-color: lightslategrey"><a class="nav-link py-2" href="Projet.aspx"><span>Projet Liste</span></a></li>
+                          <li class="nav-item" style="background-color: lightslategrey;"><a class="nav-link py-2" href="Affectation_projet.aspx"><span>Afectation a Projet</span></a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li runat="server" id="Document">
+                    <a href="Document.aspx"><span class="fa fa-sticky-note mr-3"></span> Document </a>
+                  </li>
+                  <li runat="server" id="Document_tout">
+                    <a href="Document_all_emps.aspx"><span class="fa fa-sticky-note mr-3"></span> Doc Tout Emps</a>
+                  </li>
+                  <li runat="server" id="Modifier_Compte">
+                    <a href="Modifier_compte.aspx"><span class="fa fa-edit mr-3"></span> Modifier Compte</a>
+                  </li>
+                  <li>
+                        <span class="fa fa-sign-out mr-3" style="color: red; margin-left: 30px"></span>
+                        <asp:Button ID="Déconnecter" runat="server" Text="Déconnecter" style="background-color: transparent; color: red; border: none; padding: 15px 0 15px 2px" OnClick="Déconnecter_Click"/>
+                  </li>
+                </ul>
+    	    </nav>
+
+            <!-- Page Content  -->
+            <div id="content" class="p-4 md-5 pt-5"  style="overflow-x:auto; max-width: 100%;">
+            <!-- Content Row -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+
+		    </div>          
+         </div>
+
+        <script src="index.js"></script>
+        <script src="SideBar_Files/js/jquery.min.js"></script>
+        <script src="SideBar_Files/js/popper.js"></script>
+        <script src="SideBar_Files/js/bootstrap.min.js"></script>
+        <script src="SideBar_Files/js/main.js"></script>
+        </div>
+    </form>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="js_css_cards/vendor/jquery/jquery.min.js"></script>
+    <script src="js_css_cards/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="js_css_cards/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js_css_cards/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="js_css_cards/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js_css_cards/js/demo/chart-area-demo.js"></script>
+    <script src="js_css_cards/js/demo/chart-pie-demo.js"></script>
+
+    <!-- This Js For The DropDown Item -->
+    <script>
+        /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+          dropdownContent.style.display = "none";
+          } else {
+          dropdownContent.style.display = "block";
+          }
+          });
+        }
+    </script>
+
+</body>
+</html>
